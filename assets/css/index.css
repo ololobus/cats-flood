@@ -84,11 +84,17 @@ body {
     z-index: 2;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
-    box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+    box-shadow: 5px 5px 5px rgba(68, 68, 68, 0.6);
     padding: 30px;
     display: none;
 }
 
-#poscard-header, #postcard-text {
-    z-index: 3;
+#postcard-header {
+    color: #498c9e;
+}
+
+#postcard-text {
+    text-align: justify;
+    margin-top: 15px;
+    font-size: 16pt;
 }

@@ -1,3 +1,3 @@
 # Cats overflow
 
-Interactive cats rain with cucumber pointer and optional postcard
+Interactive cats rain with cucumber pointer and optional postcard.

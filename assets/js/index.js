@@ -70,8 +70,6 @@ function snow() {
             reset(atom);
         }
 
-        ctx.drawImage(pointer_image, mX, mY, 50, pointer_aspect * 50);
-
         ctx.save();
 
         atom.angle += 3 * Math.random() * atom.direction;
@@ -84,6 +82,9 @@ function snow() {
 
         ctx.restore();
     }
+
+    ctx.drawImage(pointer_image, mX, mY, 50, pointer_aspect * 50);
+
     requestAnimationFrame(snow);
 };
 
