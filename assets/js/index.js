@@ -14,20 +14,18 @@ var atoms = [],
     canvas = document.getElementById("canvas"),
     ctx = canvas.getContext("2d"),
     atomsCount = 25,
-    mX = -100,
-    mY = -100
+    mX = 100,
+    mY = 100
 
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
 var images = [...Array(14).keys()].slice(1);
 var pointer_image = new Image();
+var pointer_aspect;
 pointer_image.src = "assets/images/cucumber.png";
 
-var pointer_aspect = pointer_image.height / pointer_image.width;
-
 function snow() {
- 
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -127,7 +125,7 @@ function init() {
     snow();
 };
 
-canvas.addEventListener("mousemove", function(e) {
+window.addEventListener("mousemove", function(e) {
     mX = e.clientX,
     mY = e.clientY
 });
@@ -137,6 +135,19 @@ window.addEventListener("resize", function() {
     canvas.height = window.innerHeight;
 })
 
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", function() {
+    var url = new URL(window.location.href);
+    var header = url.searchParams.get("h");
+    var text = url.searchParams.get("t");
+
+    if ((header && header != "") || (text && text != "")) {
+        document.getElementById("postcard").style.display = "block";
+        document.getElementById("postcard-header").textContent = header;
+        document.getElementById("postcard-text").textContent = text;
+    }
+
+    pointer_aspect = pointer_image.height / pointer_image.width;
+    pointer_image.className = "pointer";
+
     init();
 });

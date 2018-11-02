@@ -1,3 +1,15 @@
+@font-face {
+    font-family: 'aliceregular';
+    src: url('assets/fonts/Alice-Regular-webfont.eot');
+    src: url('assets/fonts/Alice-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('assets/fonts/Alice-Regular-webfont.woff2') format('woff2'),
+         url('assets/fonts/Alice-Regular-webfont.woff') format('woff'),
+         url('assets/fonts/Alice-Regular-webfont.ttf') format('truetype'),
+         url('assets/fonts/Alice-Regular-webfont.svg#aliceregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -28,15 +40,6 @@ body {
     background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
 }
 
-body1 {
-    background-color: var(--color1);
-    background-image:
-    radial-gradient(var(--color2-1) 9px, transparent 10px),        
-    repeating-radial-gradient(var(--color2-1) 0, var(--color2-1) 4px, transparent 5px, transparent 20px, var(--color2-1) 21px, var(--color2-1) 25px, transparent 26px, transparent 50px);    
-    background-size: 30px 30px, 90px 90px; 
-    background-position: 0 0;
-}
-
 #container {
     position: relative;
     height: 100%;
@@ -46,6 +49,7 @@ body1 {
 #canvas {
     background: none;
     background-color: transparent;
+    z-index: 1;
 }
 
 .hidden {
@@ -64,3 +68,27 @@ body1 {
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.pointer {
+    z-index: 10;
+}
+
+#postcard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 550px;
+    /* height: 500px; */
+    margin-left: -275px;
+    margin-top: -250px;
+    z-index: 2;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px rgba(68,68,68,0.6);
+    padding: 30px;
+    display: none;
+}
+
+#poscard-header, #postcard-text {
+    z-index: 3;
+}
