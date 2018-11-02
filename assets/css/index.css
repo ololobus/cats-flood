@@ -1,0 +1,66 @@
+* {
+    margin: 0;
+    padding: 0;
+    cursor: none;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+:root {
+    --color1: #62bbd3;
+    --color2: #80c9dd;
+    --color2-1: #fff;
+    --color3: #d5eaf0;
+}
+
+body {
+    background-color: var(--color1);
+    background-image: linear-gradient(30deg, var(--color2) 12%, transparent 12.5%, transparent 87%, var(--color2) 87.5%, var(--color2)),
+    linear-gradient(150deg, var(--color2) 12%, transparent 12.5%, transparent 87%, var(--color2) 87.5%, var(--color2)),
+    linear-gradient(30deg, var(--color2) 12%, transparent 12.5%, transparent 87%, var(--color2) 87.5%, var(--color2)),
+    linear-gradient(150deg, var(--color2) 12%, transparent 12.5%, transparent 87%, var(--color2) 87.5%, var(--color2)),
+    linear-gradient(60deg, var(--color3) 25%, transparent 25.5%, transparent 75%, var(--color3) 75%, var(--color3)), 
+    linear-gradient(60deg, var(--color3) 25%, transparent 25.5%, transparent 75%, var(--color3) 75%, var(--color3));
+    background-size: 40px 70px;
+    background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+}
+
+body1 {
+    background-color: var(--color1);
+    background-image:
+    radial-gradient(var(--color2-1) 9px, transparent 10px),        
+    repeating-radial-gradient(var(--color2-1) 0, var(--color2-1) 4px, transparent 5px, transparent 20px, var(--color2-1) 21px, var(--color2-1) 25px, transparent 26px, transparent 50px);    
+    background-size: 30px 30px, 90px 90px; 
+    background-position: 0 0;
+}
+
+#container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+#canvas {
+    background: none;
+    background-color: transparent;
+}
+
+.hidden {
+    display: none;
+}
+
+.cat-img {
+    width: 7%;
+}
+
+.cat-img.spin {
+    -webkit-animation:spin 4s linear infinite;
+    -moz-animation:spin 4s linear infinite;
+    animation:spin 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
