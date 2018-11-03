@@ -1,11 +1,11 @@
 (function() {
     var requestAnimationFrame = window.requestAnimationFrame
-                                || window.mozRequestAnimationFrame
-                                || window.webkitRequestAnimationFrame
-                                || window.msRequestAnimationFrame
-                                || function(callback) {
-                                        window.setTimeout(callback, 1000 / 60);
-                                    };
+                             || window.mozRequestAnimationFrame
+                             || window.webkitRequestAnimationFrame
+                             || window.msRequestAnimationFrame
+                             || function(callback) {
+                                    window.setTimeout(callback, 1000 / 60);
+                                };
     window.requestAnimationFrame = requestAnimationFrame;
 })();
 
@@ -19,7 +19,7 @@ var atoms = [],
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-var images = [...Array(14).keys()].slice(1);
+const images = [...Array(14).keys()].slice(1);
 var pointer_image = new Image();
 var pointer_aspect;
 pointer_image.src = "assets/images/cucumber.png";
@@ -34,7 +34,7 @@ function snow() {
         var atom = atoms[i],
             x = mX,
             y = mY,
-            minDist = 150,
+            minDist = 200,
             x2 = atom.x,
             y2 = atom.y;
 
@@ -129,9 +129,9 @@ function touchCallback(ev) {
     ev.preventDefault();
     ev.stopPropagation();
 
-    var touch = ev.targetTouches[ev.targetTouches.length - 1];
+    const touch = ev.targetTouches[ev.targetTouches.length - 1];
     mX = touch.clientX;
-    mY = touch.clientY;
+    mY = touch.clientY - 70;
 };
 
 window.addEventListener("mousemove", function(ev) {
@@ -146,6 +146,8 @@ window.addEventListener("touchmove", touchCallback);
 window.addEventListener("touchstart", touchCallback);
 document.addEventListener("touchmove", touchCallback);
 document.addEventListener("touchmove", touchCallback);
+document.body.addEventListener("touchmove", touchCallback);
+document.body.addEventListener("touchmove", touchCallback);
 
 window.addEventListener("resize", function() {
     canvas.width = window.innerWidth;
