@@ -13,7 +13,6 @@
 * {
     margin: 0;
     padding: 0;
-    cursor: none;
 }
 
 html, body {
@@ -50,6 +49,7 @@ body {
     background: none;
     background-color: transparent;
     z-index: 1;
+    cursor: none;
 }
 
 .hidden {
@@ -97,4 +97,8 @@ body {
     text-align: justify;
     margin-top: 15px;
     font-size: 16pt;
+}
+
+.github-corner:hover {
+    cursor: pointer;
 }
