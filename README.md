@@ -2,4 +2,4 @@
 
 Interactive cats rain with cucumber pointer and optional postcard.
 
-![Cats flood gif](https://giphy.com/embed/2uI6CXvExKthc0wCV1)
+![Cats flood gif](https://media.giphy.com/media/2uI6CXvExKthc0wCV1/giphy.gif)
