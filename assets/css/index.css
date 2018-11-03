@@ -28,6 +28,38 @@ body {
     background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
 }
 
+#container {
+    visibility: hidden;
+}
+
+#loader {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    width: 200px;
+    height: 250px;
+    margin-left: -100px;
+    margin-top: -100px;
+}
+
+#loader-text {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    font-family: sans-serif;
+    margin-top: 20px;
+    font-weight: bold;
+    background-color: rgba(98, 187, 211, 0.8);
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 3px 3px 3px rgba(68, 68, 68, 0.6);
+}
+
+#loader-text noscript {
+    font-weight: normal;
+    font-size: 30px;
+}
+
 #canvas {
     background: none;
     background-color: transparent;
@@ -36,17 +68,17 @@ body {
 }
 
 .hidden {
-    display: none;
+    visibility: hidden;
 }
 
 .cat-img {
-    width: 7%;
+    width: 200px;
 }
 
 .cat-img.spin {
-    -webkit-animation:spin 4s linear infinite;
-    -moz-animation:spin 4s linear infinite;
-    animation:spin 4s linear infinite;
+    -webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
+    animation: spin 4s linear infinite;
 }
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }

@@ -160,4 +160,7 @@ document.addEventListener("DOMContentLoaded", function() {
     pointer_image.className = "pointer";
 
     init();
+
+    document.getElementById("container").style.visibility = "visible";
+    document.getElementById("loader").style.visibility = "hidden";
 });
