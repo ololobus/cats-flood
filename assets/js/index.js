@@ -131,7 +131,7 @@ function touchCallback(ev) {
 
     const touch = ev.targetTouches[ev.targetTouches.length - 1];
     mX = touch.clientX;
-    mY = touch.clientY - 70;
+    mY = touch.clientY - 90;
 };
 
 window.addEventListener("mousemove", function(ev) {
@@ -142,12 +142,12 @@ window.addEventListener("mousemove", function(ev) {
     mY = ev.clientY;
 });
 
-window.addEventListener("touchmove", touchCallback);
-window.addEventListener("touchstart", touchCallback);
-document.addEventListener("touchmove", touchCallback);
-document.addEventListener("touchmove", touchCallback);
-document.body.addEventListener("touchmove", touchCallback);
-document.body.addEventListener("touchmove", touchCallback);
+window.addEventListener("touchmove", touchCallback, { passive: false });
+window.addEventListener("touchstart", touchCallback, { passive: false });
+document.addEventListener("touchmove", touchCallback, { passive: false });
+document.addEventListener("touchmove", touchCallback, { passive: false });
+document.body.addEventListener("touchmove", touchCallback, { passive: false });
+document.body.addEventListener("touchmove", touchCallback, { passive: false });
 
 window.addEventListener("resize", function() {
     canvas.width = window.innerWidth;
