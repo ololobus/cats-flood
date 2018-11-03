@@ -9,7 +9,6 @@
     window.requestAnimationFrame = requestAnimationFrame;
 })();
 
-
 var atoms = [],
     canvas = document.getElementById("canvas"),
     ctx = canvas.getContext("2d"),
@@ -128,6 +127,7 @@ function init() {
 
 function touchCallback(ev) {
     ev.preventDefault();
+    ev.stopPropagation();
 
     var touch = ev.targetTouches[ev.targetTouches.length - 1];
     mX = touch.clientX;
@@ -135,12 +135,17 @@ function touchCallback(ev) {
 };
 
 window.addEventListener("mousemove", function(ev) {
+    ev.preventDefault();
+    ev.stopPropagation();
+
     mX = ev.clientX;
     mY = ev.clientY;
 });
 
 window.addEventListener("touchmove", touchCallback);
 window.addEventListener("touchstart", touchCallback);
+document.addEventListener("touchmove", touchCallback);
+document.addEventListener("touchmove", touchCallback);
 
 window.addEventListener("resize", function() {
     canvas.width = window.innerWidth;
