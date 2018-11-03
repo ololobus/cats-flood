@@ -71,7 +71,7 @@ function snow() {
 
         ctx.save();
 
-        atom.angle += 3 * Math.random() * atom.direction;
+        atom.angle += atom.angleSpeed * atom.direction;
         atom.angle = atom.angle % 360;
 
         ctx.translate(atom.x, atom.y);
@@ -97,6 +97,7 @@ function reset(atom) {
     atom.direction = Math.round(Math.random() * 2) - 1;
     atom.angle = atom.direction * Math.random() * 360;
     atom.image = Math.floor(Math.random() * images.length) + 1;
+    atom.angleSpeed = 2 * Math.random() + 1;
 }
 
 function init() {
@@ -118,7 +119,8 @@ function init() {
             step: 0,
             direction: direction,
             angle: direction * Math.random() * 360,
-            image: Math.floor(Math.random() * images.length) + 1
+            image: Math.floor(Math.random() * images.length) + 1,
+            angleSpeed: 2 * Math.random() + 1
         });
     }
 
