@@ -15,10 +15,10 @@ var atoms = [],
     ctx = canvas.getContext("2d"),
     atomsCount = 25,
     mX = 100,
-    mY = 100
+    mY = 100;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 var images = [...Array(14).keys()].slice(1);
 var pointer_image = new Image();
@@ -126,15 +126,24 @@ function init() {
     snow();
 };
 
-window.addEventListener("mousemove", function(e) {
-    mX = e.clientX,
-    mY = e.clientY
+function touchCallback(ev) {
+    var touch = ev.targetTouches[ev.targetTouches.length - 1];
+    mX = touch.clientX;
+    mY = touch.clientY;
+};
+
+window.addEventListener("mousemove", function(ev) {
+    mX = ev.clientX;
+    mY = ev.clientY;
 });
+
+window.addEventListener("touchmove", touchCallback);
+window.addEventListener("touchstart", touchCallback);
 
 window.addEventListener("resize", function() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-})
+});
 
 document.addEventListener("DOMContentLoaded", function() {
     var url = new URL(window.location.href);
