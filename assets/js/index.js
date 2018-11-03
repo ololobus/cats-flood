@@ -127,6 +127,8 @@ function init() {
 };
 
 function touchCallback(ev) {
+    ev.preventDefault();
+
     var touch = ev.targetTouches[ev.targetTouches.length - 1];
     mX = touch.clientX;
     mY = touch.clientY;
