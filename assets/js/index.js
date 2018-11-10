@@ -19,18 +19,24 @@ var atoms = [],
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const images = [...Array(14).keys()].slice(1);
+// Preload all images
+const image_ids = [...Array(14).keys()].slice(1);
+var images = [];
 var pointer_image = new Image();
 var pointer_aspect;
 pointer_image.src = "assets/images/cucumber.png";
+
+image_ids.forEach((n) => {
+    var img = new Image();
+    img.src = "assets/images/cat-" + n + ".png";
+    images.push(img);
+});
 
 function snow() {
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (var i = 0; i < atomsCount; i++) {
-        var base_image = new Image();
-
         var atom = atoms[i],
             x = mX,
             y = mY,
@@ -76,8 +82,7 @@ function snow() {
 
         ctx.translate(atom.x, atom.y);
         ctx.rotate(atom.angle * Math.PI / 180);
-        base_image.src = "assets/images/cat-" + atom.image + ".png";
-        ctx.drawImage(base_image, - atom.size / 2, - atom.size / 2, atom.size, atom.size);
+        ctx.drawImage(images[atom.image - 1], - atom.size / 2, - atom.size / 2, atom.size, atom.size);
 
         ctx.restore();
     }
@@ -96,7 +101,7 @@ function reset(atom) {
     atom.velX = 0;
     atom.direction = Math.round(Math.random() * 2) - 1;
     atom.angle = atom.direction * Math.random() * 360;
-    atom.image = Math.floor(Math.random() * images.length) + 1;
+    atom.image = Math.floor(Math.random() * image_ids.length) + 1;
     atom.angleSpeed = 2 * Math.random() + 1;
 }
 
@@ -119,7 +124,7 @@ function init() {
             step: 0,
             direction: direction,
             angle: direction * Math.random() * 360,
-            image: Math.floor(Math.random() * images.length) + 1,
+            image: Math.floor(Math.random() * image_ids.length) + 1,
             angleSpeed: 2 * Math.random() + 1
         });
     }
@@ -136,7 +141,7 @@ function touchCallback(ev) {
     mY = touch.clientY - 90;
 };
 
-window.addEventListener("mousemove", function(ev) {
+window.addEventListener("mousemove", (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
 
@@ -156,7 +161,7 @@ window.addEventListener("resize", function() {
     canvas.height = window.innerHeight;
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
     var url = new URL(window.location.href);
     var header = url.searchParams.get("h");
     var text = url.searchParams.get("t");
@@ -172,6 +177,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     init();
 
-    document.getElementById("container").style.visibility = "visible";
-    document.getElementById("loader").style.visibility = "hidden";
+    setTimeout(() => {
+        document.getElementById("container").style.visibility = "visible";
+        document.getElementById("loader").style.visibility = "hidden";
+    }, 1000);
 });
