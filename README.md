@@ -6,20 +6,8 @@ Interactive cats rain with cucumber pointer and optional postcard.
 
 ### Customization
 
-Plain canvas
+- Plain canvas https://ololobus.github.io/cats-flood
 
-```
-https://ololobus.github.io/cats-flood
-```
+- With header https://ololobus.github.io/cats-flood?h=Header+text
 
-Header
-
-```
-https://ololobus.github.io/cats-flood?h=Header+text
-```
-
-Text
-
-```
-https://ololobus.github.io/cats-flood?t=Main+text
-```
+- With text https://ololobus.github.io/cats-flood?t=Main+text
